@@ -2,7 +2,13 @@
  *Author: Putthipong Kitisriworaphan
  *ID: 653040458-0
  *Sec: 1
- *Date: December 9, 2022  
+ *Date: December 9, 2022
+ *
+ *This program is accept four arguments: 
+ *number of notes of 1,000 Baht, 500 Baht, 100 Baht and 20 Baht
+ *to compute total amount of money.
+ *Output format is
+ *Total money is <total>
 **/
 
 package kitisriworaphan.putthipong.lab2;
@@ -21,11 +27,3 @@ public class MoneyProcessor {
         }
     }
 }
-
-/**
- *This program is accept four arguments: 
- *number of notes of 1,000 Baht, 500 Baht, 100 Baht and 20 Baht
- *to compute total amount of money.
- *Output format is
- *Total money is <total>
-**/

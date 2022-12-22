@@ -2,7 +2,17 @@
  *Author: Putthipong Kitisriworaphan
  *ID: 653040458-0
  *Sec: 1
- *Date: December 9, 2022  
+ *Date: December 9, 2022
+ *
+ *This program is accept an argument: school name as String
+ *to determine if it is a college or a university
+ *by using operations on strings: toUpperCase() on line 13
+ *to convert the school name to lowercase 
+ *and check if it contains the word "college" or "university".
+ *Output format is
+ *"<schoolname> is a college" or
+ *"<schoolname> is a university" or
+ *"<schoolname> is neither a university nor a college"
 **/
 
 package kitisriworaphan.putthipong.lab2;
@@ -20,15 +30,3 @@ public class StringAPI {
         }
     }
 }
-
-/**
- *This program is accept an argument: school name as String
- *to determine if it is a college or a university
- *by using operations on strings: toUpperCase() on line 13
- *to convert the school name to lowercase 
- *and check if it contains the word "college" or "university".
- *Output format is
- *"<schoolname> is a college" or
- *"<schoolname> is a university" or
- *"<schoolname> is neither a university nor a college"
-**/

@@ -38,7 +38,7 @@ public class BasicStatMethod {
         switch (input) {
             // check if number was input
             case "":
-                System.out.println("Please enter at least one number.");
+                System.err.println("Please enter at least one number.");
                 System.exit(0);
             default:
                 return input;
@@ -48,44 +48,49 @@ public class BasicStatMethod {
     public static void calculateStat(String input) {
         List<Double> list = new ArrayList<Double>();
         String inputList[] = input.split(" ");
-        //convert string input to double number
-        for (int i = 0; i < inputList.length; i++) {
-            Double number = Double.parseDouble(inputList[i]);
-            list.add(number);
-        }
-        Collections.sort(list);
-        System.out.print("Sorted numbers are ");
-        // display numbers in ascending order
-        for (double number : list) {
-            System.out.print(number + " ");
-        }
-        System.out.println("");
-        System.out.println("Minimum: " + String.format("%.2f", list.get(0)));
-        System.out.println("Maximum: " + String.format("%.2f", list.get(inputList.length - 1)));
-        double sum = 0;
-        // sum total number in list
-        for (double number : list) {
-            sum += number;
-        }
-        double avg = sum / inputList.length;
-        System.out.println("Average: " + String.format("%.2f", avg));
-        // check if length list is even
-        if (inputList.length % 2 == 0) {
-            double median = (list.get((inputList.length - 2) / 2) + list.get((inputList.length) / 2)) / 2;
-            System.out.println("Median: " + String.format("%.2f", median));
-        // when length list is odd
+        if (inputList.length > 10) {
+            System.err.println("Please enter no more than 10 numbers.");
+            System.exit(0);
         } else {
-            double median = list.get((inputList.length - 1) / 2);
-            System.out.println("Median: " + String.format("%.2f", median));
+            // convert string input to double number
+            for (int i = 0; i < inputList.length; i++) {
+                Double number = Double.parseDouble(inputList[i]);
+                list.add(number);
+            }
+            Collections.sort(list);
+            System.out.print("Sorted numbers are ");
+            // display numbers in ascending order
+            for (double number : list) {
+                System.out.print(number + " ");
+            }
+            System.out.println("");
+            System.out.println("Minimum: " + String.format("%.2f", list.get(0)));
+            System.out.println("Maximum: " + String.format("%.2f", list.get(inputList.length - 1)));
+            double sum = 0;
+            // sum total number in list
+            for (double number : list) {
+                sum += number;
+            }
+            double avg = sum / inputList.length;
+            System.out.println("Average: " + String.format("%.2f", avg));
+            // check if length list is even
+            if (inputList.length % 2 == 0) {
+                double median = (list.get((inputList.length - 2) / 2) + list.get((inputList.length) / 2)) / 2;
+                System.out.println("Median: " + String.format("%.2f", median));
+                // when length list is odd
+            } else {
+                double median = list.get((inputList.length - 1) / 2);
+                System.out.println("Median: " + String.format("%.2f", median));
+            }
+            double sigma = 0;
+            // sum each number minus average and square them
+            for (double number : list) {
+                double numMinusAvg = Math.pow((number - avg), 2);
+                sigma += numMinusAvg;
+            }
+            double sdSqrt = sigma / inputList.length;
+            double sd = Math.sqrt(sdSqrt);
+            System.out.println("Standard deviation: " + String.format("%.2f", sd));
         }
-        double sigma = 0;
-        // sum each number minus average and square them
-        for (double number : list) {
-            double numMinusAvg = Math.pow((number - avg), 2);
-            sigma += numMinusAvg;
-        }
-        double sdSqrt = sigma / inputList.length;
-        double sd = Math.sqrt(sdSqrt);
-        System.out.println("Standard deviation: " + String.format("%.2f", sd));
     }
 }

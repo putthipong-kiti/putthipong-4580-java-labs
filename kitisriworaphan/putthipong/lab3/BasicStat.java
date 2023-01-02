@@ -25,15 +25,20 @@ public class BasicStat {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter number (seperated by space): ");
         String input[] = scanner.nextLine().split(" ");
-        // check if number was input
-        if (input[0].equals("")) {
-            System.out.println("Please enter at least one number.");
+        if (input.length > 10) {
+            System.err.println("Please enter no more than 10 numbers.");
             System.exit(0);
         } else {
-            //convert string input to double number
-            for (int i = 0; i < input.length; i++) {
-                Double number = Double.parseDouble(input[i]);
-                list.add(number);
+            // check if number was input
+            if (input[0].equals("")) {
+                System.err.println("Please enter at least one number.");
+                System.exit(0);
+            } else {
+                // convert string input to double number
+                for (int i = 0; i < input.length; i++) {
+                    Double number = Double.parseDouble(input[i]);
+                    list.add(number);
+                }
             }
         }
         Collections.sort(list);
@@ -56,7 +61,7 @@ public class BasicStat {
         if (input.length % 2 == 0) {
             double median = (list.get((input.length - 2) / 2) + list.get((input.length) / 2)) / 2;
             System.out.println("Median: " + String.format("%.2f", median));
-        // when length list is odd
+            // when length list is odd
         } else {
             double median = list.get((input.length - 1) / 2);
             System.out.println("Median: " + String.format("%.2f", median));

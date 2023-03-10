@@ -23,6 +23,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class AthleteFormV5 extends AthleteFormV4 {
+    protected Color kkuColor, blueColor, lightGrayColor, darkBlueColor;
+    protected Font serifBold14, serifBoldItalic14, sanSerifBold14;
+
     public AthleteFormV5(String title) {
         super(title);
     }
@@ -46,14 +49,14 @@ public class AthleteFormV5 extends AthleteFormV4 {
     protected void addComponents() {
         super.addComponents();
         // declare KKU color
-        Color kkuColor = new Color(167, 59, 36);
+        kkuColor = new Color(167, 59, 36);
         // change background color of all text fields to KKU color
         nameTextField.setBackground(kkuColor);
         weighTextField.setBackground(kkuColor);
         heighTextField.setBackground(kkuColor);
         dateOfBirthTextField.setBackground(kkuColor);
         // declare font "Serif" , bold, and size 14
-        Font serifBold14 = new Font("Serif", Font.BOLD, 14);
+        serifBold14 = new Font("Serif", Font.BOLD, 14);
         // change font of all the labels to "Serif" , bold, and size 14
         nameLabel.setFont(serifBold14);
         weightLabel.setFont(serifBold14);
@@ -66,17 +69,17 @@ public class AthleteFormV5 extends AthleteFormV4 {
         bioLabel.setFont(serifBold14);
         yearLabel.setFont(serifBold14);
         // declare blue color defined in RGB format
-        Color blueColor = new Color(35, 45, 222);
+        blueColor = new Color(35, 45, 222);
         // change font color of sport list to blue color
         sportList.setForeground(blueColor);
         // declare font "Serif", Bold and Italic, and size 16
-        Font serifBoldItalic14 = new Font("Serif", Font.BOLD | Font.ITALIC, 14);
+        serifBoldItalic14 = new Font("Serif", Font.BOLD | Font.ITALIC, 14);
         // change font of buttons to "Serif", Bold and Italic, and size 16
         cancelButton.setFont(serifBoldItalic14);
         resetButton.setFont(serifBoldItalic14);
         submitButton.setFont(serifBoldItalic14);
         // declare light gray color defined in RGB format
-        Color lightGrayColor = new Color(200, 200, 200);
+        lightGrayColor = new Color(200, 200, 200);
         // change background color of bio text area to light gray color
         bioTextArea.setBackground(lightGrayColor);
         // set tooltip text that will show a message when a mouse is moved over the button
@@ -89,7 +92,7 @@ public class AthleteFormV5 extends AthleteFormV4 {
     protected void addMenus() {
         super.addMenus();
         // declare font “SanSerif”, BOLD, and size 14
-        Font sanSerifBold14 = new Font("SanSerif", Font.BOLD, 14);
+        sanSerifBold14 = new Font("SanSerif", Font.BOLD, 14);
         // change font of all menus and menu items to “SanSerif”, BOLD, and size 14
         fileMenu.setFont(sanSerifBold14);
         configMenu.setFont(sanSerifBold14);
@@ -106,7 +109,7 @@ public class AthleteFormV5 extends AthleteFormV4 {
         twentyItem.setFont(sanSerifBold14);
         twentyFourItem.setFont(sanSerifBold14);
         // declare dark blue color defined in RGB format
-        Color darkBlueColor = new Color(6, 57, 112);
+        darkBlueColor = new Color(6, 57, 112);
         // change color of menus and menu items (except File and Config menu) to dark blue color
         colorMenu.setForeground(darkBlueColor);
         sizeMenu.setForeground(darkBlueColor);

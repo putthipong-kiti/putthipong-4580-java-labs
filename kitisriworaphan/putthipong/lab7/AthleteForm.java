@@ -20,6 +20,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class AthleteForm extends MySimpleWindow {
+    protected ButtonGroup genderGroup;
     protected JLabel nameLabel, weightLabel, heightLabel, dateOfBitrhLabel, genderLabel;
     protected JPanel mainPanel, topPanel, genderPanel;
     protected JRadioButton maleButton, femaleButton;
@@ -77,7 +78,7 @@ public class AthleteForm extends MySimpleWindow {
         topPanel.add(genderPanel);
         // create genderGroup using class ButtonGroup to group maleButton and femaleButton 
         // to allow a user to choose only one radio button at a time
-        ButtonGroup genderGroup = new ButtonGroup();
+        genderGroup = new ButtonGroup();
         genderGroup.add(maleButton);
         genderGroup.add(femaleButton);
         // add topPanel at north of mainPanel
@@ -85,6 +86,4 @@ public class AthleteForm extends MySimpleWindow {
         // add mainPanel to frame
         add(mainPanel);
     }
-
-
 }

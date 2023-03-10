@@ -102,7 +102,7 @@ public class AthleteFormV8 extends AthleteFormV6 implements ActionListener {
         String hobbiesText = "Hobbies:" + hobbiesString + "\n";
         String nationalityText = "Nationality:" + nationalityComboBox.getSelectedItem() + "\n";
         String sportText = "Sport:" + sportList.getSelectedValuesList() + "\n";
-        String yearText = "Experience years:" + String.valueOf(yearSlider.getValue()) + "\n";
+        String yearText = "Experience years:" + String.valueOf(yearSlider.getValue());
         resultText += nameText;
         resultText += weightText;
         resultText += heightText;

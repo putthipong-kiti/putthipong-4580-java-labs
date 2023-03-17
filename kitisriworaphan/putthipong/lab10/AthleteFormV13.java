@@ -42,7 +42,8 @@ public class AthleteFormV13 extends AthleteFormV12 {
         windowAthleteFormV13.setFrameFeatures();
     }
 
-    // override method addComponents to set name of weight textfield and height textfield
+    // override method addComponents to set name of weight textfield and height
+    // textfield
     @Override
     protected void addComponents() {
         super.addComponents();
@@ -50,7 +51,8 @@ public class AthleteFormV13 extends AthleteFormV12 {
         heighTextField.setName("Height");
     }
 
-    // If the weight input or height input is invalid or out of range, that's mean getValidNumber return -1
+    // If the weight input or height input is invalid or out of range, that's mean
+    // getValidNumber return -1
     // The program will display the dialog with the error message
     @Override
     public void actionPerformed(ActionEvent eActionEvent) {
@@ -70,8 +72,10 @@ public class AthleteFormV13 extends AthleteFormV12 {
         super.actionPerformed(eActionEvent);
     }
 
-    // If the weight input or height input is invalid or out of range, it means getValidNumber return -1
-    // The program will display the dialog with the error message and method will return without any further processing
+    // If the weight input or height input is invalid or out of range, it means
+    // getValidNumber return -1
+    // The program will display the dialog with the error message and method will
+    // return without any further processing
     @Override
     protected void addAthlete() {
         getWeightHeightValue();
@@ -82,12 +86,14 @@ public class AthleteFormV13 extends AthleteFormV12 {
         height = getValidNumber(heightTextFieldName, heightText, MAX_HEIGHT);
         if (height == -1) {
             return;
-        } 
+        }
         super.addAthlete();
     }
 
-    // If the weight input or height input is invalid or out of range, it means getValidNumber return -1
-    // The program will display the dialog with the error message and method will return without any further processing
+    // If the weight input or height input is invalid or out of range, it means
+    // getValidNumber return -1
+    // The program will display the dialog with the error message and method will
+    // return without any further processing
     protected void getWeightHeightValue() {
         weightTextFieldName = weighTextField.getName();
         heightTextFieldName = heighTextField.getName();
@@ -95,8 +101,10 @@ public class AthleteFormV13 extends AthleteFormV12 {
         heightText = heighTextField.getText();
     }
 
-    // define method getValidNumber to check if the weight or height is not a number text or not within the specified range
-    // If the weight or height is not a number text or not within the specified range, 
+    // define method getValidNumber to check if the weight or height is not a number
+    // text or not within the specified range
+    // If the weight or height is not a number text or not within the specified
+    // range,
     // this method will return -1 and display the dialog with the error message
     protected int getValidNumber(String textFieldName, String numberText, Double MAX_NUMBER) {
         if (isNumber(numberText)) {
@@ -116,18 +124,12 @@ public class AthleteFormV13 extends AthleteFormV12 {
     }
 
     // define method isNumber to check if text is numeric will return true
-    // If text end with "D", "d", "F", "f" means suffix indicates "double" literal and "float" literal, this method will return false
     protected boolean isNumber(String numberString) {
-        if (numberString.endsWith("D") || numberString.endsWith("d") 
-               || numberString.endsWith("F") ||numberString.endsWith("f")) {
+        try {
+            Double.parseDouble(numberString);
+            return true;
+        } catch (NumberFormatException e) {
             return false;
-        } else {
-            try {
-                Double.parseDouble(numberString);
-                return true;
-            } catch (NumberFormatException e) {
-                return false;
-            }
         }
     }
 }

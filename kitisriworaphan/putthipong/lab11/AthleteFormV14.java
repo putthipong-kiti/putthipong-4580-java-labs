@@ -102,17 +102,25 @@ public class AthleteFormV14 extends AthleteFormV13 {
                 File selectedFile = fileChooser.getSelectedFile();
                 FileReader selectedFileReader = new FileReader(selectedFile);
                 BufferedReader selectedFileBufferedReader = new BufferedReader(selectedFileReader);
-                ArrayList<String> data = new ArrayList<String>();
+                ArrayList<String> hobbies = new ArrayList<String>();
                 String line;
                 while ((line = selectedFileBufferedReader.readLine()) != null) {
-                    data.add(line);
+                    hobbies.add(line);
+                }
+                for (String word : hobbies) {
+                    if (word.isEmpty()) {
+                        selectedHobbySize = 0;
+                    } else {
+                        String[] hobby = word.split("\\s+");
+                        selectedHobbySize = hobby.length;
+                    }
                 }
                 if (selectedHobbySize == 0) {
-                    bioTextArea.append(data.get(0) + " does not have any hobby" + "\n");
+                    bioTextArea.append(hobbies.get(0) + " does not have any hobby" + "\n");
                 } else if (selectedHobbySize == 1) {
-                    bioTextArea.append(data.get(0) + " has a hobby as " + data.get(1) + "\n");
+                    bioTextArea.append(hobbies.get(0) + " has a hobby as " + hobbies.get(1) + "\n");
                 } else {
-                    bioTextArea.append(data.get(0) + " has hobbies as " + data.get(1) + "\n");
+                    bioTextArea.append(hobbies.get(0) + " has hobbies as " + hobbies.get(1) + "\n");
                 }
                 selectedFileBufferedReader.close();
                 selectedFileReader.close();

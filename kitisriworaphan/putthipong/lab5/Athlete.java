@@ -19,11 +19,13 @@
 
 package kitisriworaphan.putthipong.lab5;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
-public class Athlete {
+// implement Serializable for lab11
+public class Athlete implements Serializable {
     protected String name;
     protected double weight;
     protected double height;
@@ -34,15 +36,17 @@ public class Athlete {
 
     protected Gender gender;
     protected String nationality;
-    protected String birthdate;
+    protected String birthdateString;
+    protected LocalDate birthDate;
 
-    public Athlete(String name, double weight, double height, Gender gender, String nationality, String birthdate) {
+    public Athlete(String name, double weight, double height, Gender gender, String nationality,
+            String birthdateString) {
         this.name = name;
         this.weight = weight;
         this.height = height;
         this.gender = gender;
         this.nationality = nationality;
-        this.birthdate = birthdate;
+        this.birthdateString = birthdateString;
     }
 
     public String getName() {
@@ -85,18 +89,18 @@ public class Athlete {
         this.nationality = nationality;
     }
 
-    public String getBirthdate() {
-        return birthdate;
+    public String getBirthdateString() {
+        return birthdateString;
     }
 
-    public void setBirthdate(String birthdate) {
-        this.birthdate = birthdate;
+    public void setBirthdateString(String birthdate) {
+        this.birthdateString = birthdate;
     }
 
     public void compareAge(BadmintonPlayer athleteB) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate dateBefore = LocalDate.parse(birthdate, formatter);
-        LocalDate dateAfter = LocalDate.parse(athleteB.getBirthdate(), formatter);
+        LocalDate dateBefore = LocalDate.parse(birthdateString, formatter);
+        LocalDate dateAfter = LocalDate.parse(athleteB.getBirthdateString(), formatter);
         long yearDiff = ChronoUnit.YEARS.between(dateBefore, dateAfter);
         if (yearDiff > 0) {
             System.out.println(athleteB.name + " is " + yearDiff + " years younger than " + name);
@@ -109,8 +113,8 @@ public class Athlete {
 
     public void compareAge(Boxer athleteB) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate dateBefore = LocalDate.parse(birthdate, formatter);
-        LocalDate dateAfter = LocalDate.parse(athleteB.birthdate, formatter);
+        LocalDate dateBefore = LocalDate.parse(birthdateString, formatter);
+        LocalDate dateAfter = LocalDate.parse(athleteB.birthdateString, formatter);
         long yearDiff = ChronoUnit.YEARS.between(dateBefore, dateAfter);
         if (yearDiff > 0) {
             System.out.println(athleteB.name + " is " + yearDiff + " years younger than " + name);
@@ -123,8 +127,8 @@ public class Athlete {
 
     public void compareAge(Footballer athleteB) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate dateBefore = LocalDate.parse(birthdate, formatter);
-        LocalDate dateAfter = LocalDate.parse(athleteB.getBirthdate(), formatter);
+        LocalDate dateBefore = LocalDate.parse(birthdateString, formatter);
+        LocalDate dateAfter = LocalDate.parse(athleteB.getBirthdateString(), formatter);
         long yearDiff = ChronoUnit.YEARS.between(dateBefore, dateAfter);
         if (yearDiff > 0) {
             System.out.println(athleteB.name + " is " + yearDiff + " years younger than " + name);
@@ -137,7 +141,8 @@ public class Athlete {
 
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        birthDate = LocalDate.parse(birthdateString, formatter);
         return "Athlete [" + name + ", " + weight + "kg, " + height + "m, " + gender + ", " + nationality + ", "
-                + LocalDate.parse(birthdate, formatter) + "]";
+                + birthDate + "]";
     }
 }

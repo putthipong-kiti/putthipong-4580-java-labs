@@ -59,7 +59,7 @@ public class Footballer extends Athlete {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return name + ", " + weight + "kg, " + height + "m, " + gender
                 + ", " + nationality + ", "
-                + LocalDate.parse(birthdate, formatter) + ", " + sport + ", "
+                + LocalDate.parse(birthdateString, formatter) + ", " + sport + ", "
                 + position + ", " + team;
     }
 }

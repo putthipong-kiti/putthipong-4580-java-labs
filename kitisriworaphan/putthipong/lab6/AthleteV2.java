@@ -16,8 +16,8 @@ package kitisriworaphan.putthipong.lab6;
 import kitisriworaphan.putthipong.lab5.Athlete;
 
 public class AthleteV2 extends Athlete {
-    public AthleteV2(String name, double weight, double height, Gender gender, String nationality, String birthdate) {
-        super(name, weight, height, gender, nationality, birthdate);
+    public AthleteV2(String name, double weight, double height, Gender gender, String nationality, String birthdateString) {
+        super(name, weight, height, gender, nationality, birthdateString);
     }
 
     public void practice() {
